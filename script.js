@@ -73,3 +73,13 @@ overlay.addEventListener('click', () => {
 
   updateMusicIcon(true);
 });
+
+const video = document.getElementById("bg-video");
+const audio = document.getElementById("bg-music");
+
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") {
+    video.currentTime = audio.currentTime;
+    video.play().catch(() => {});
+  }
+});
